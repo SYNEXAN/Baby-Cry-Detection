@@ -1,0 +1,9 @@
+path: /kaggle/input/datasets/thittn/vision-v4-clean-balanced
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 2
+names:
+  0: adults
+  1: kids

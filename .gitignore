@@ -1,0 +1,94 @@
+# ==============================================================================
+# Security & Git Exclusion Policy: Baby-Cry-Detection
+# Strictly excludes raw big datasets, secrets, temp files, and private research papers
+# ==============================================================================
+
+# Python Bytecode & Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.env*
+.venv/
+env/
+venv/
+.pytest_cache/
+
+# Secrets, Tokens & Private Credentials
+*.pem
+*.key
+*token*
+*secret*
+*kaggle*.json
+credentials/
+
+# Raw Big Datasets (~8 GB Audio & Video Data)
+data/
+datasets/
+raw_data/
+
+# Temporary, Cache & Process Logs
+temp_*/
+demo_cache/
+demo_verified_preds/
+demo_videos/
+demo_images/
+output_videos/
+uploaded_videos/
+*.log
+*.tmp
+
+# Temporary Scratch Images
+temp_scan_*.jpg
+crop_b*.jpg
+scratch_*.jpg
+test_frame_2s.jpg
+
+# Private Research Papers, Drafts & Documents
+*.pdf
+*.docx
+*.doc
+
+# Redundant Base Model Weights in Root (Pretrained Ultralytics Weights)
+yolo11m.pt
+yolo11n.pt
+yolov8m.pt
+yolov8n-pose.pt
+
+# Intermediate Kaggle Experiment Runs & Kernels
+kaggle_temp_check/
+kaggle_audio_results/
+kaggle_compact_results/
+kaggle_eletriby_results/
+inspect_yolo_notebook/
+inspect_yolo_kernel/
+kaggle_kernel*/
+kaggle_audio_kernel/
+kaggle_audio_vuitang_kernel/
+kaggle_audio_sota_kernel/
+kaggle_eletriby_kernel/
+kaggle_compact_kernel/
+test_quota_thitenguyen/
+
+# Keep only the production model weights in kaggle_results
+kaggle_results/*
+!kaggle_results/v4_clean_balanced/
+kaggle_results/v4_clean_balanced/*
+!kaggle_results/v4_clean_balanced/best.pt
+!kaggle_results/v4_clean_balanced/data_v4.yaml
+!kaggle_results/v4_clean_balanced/training_metrics_curves.png
+
+# Keep production audio classifier
+!models/
+!models/best_eletriby_4class_audio_classifier.pt
+
+# Keep demo test videos and static thumbnails
+!VIDEO_TEST/
+VIDEO_TEST/originals/
+VIDEO_TEST/8160128*
+!frontend/thumbnails/
+
+# Operating System & IDE Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

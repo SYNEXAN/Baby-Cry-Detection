@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>He Thong Giam Sat An Toan Tre Em</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="gradio-container">
+        <!-- Header Box -->
+        <header class="header-box">
+            <h1 class="header-title">HE THONG GIAM SAT AN TOAN TRE EM</h1>
+            <p class="header-sub">Phat hien tre bi bo lai mot minh va nhan dien nguyen nhan tieng khoc truc tiep tu video.</p>
+        </header>
+
+        <!-- Main Screen: Side-by-Side Layout -->
+        <main>
+            <div class="video-grid-row">
+                <!-- Left Panel: Input Video -->
+                <section class="panel-card">
+                    <span class="panel-label">Video Dau Vao (Hinh Anh & Am Thanh)</span>
+                    <div class="media-viewer" id="videoViewer">
+                        <div class="upload-dropzone" id="dropzone">
+                            <input type="file" id="fileInput" accept="video/mp4,video/x-m4v,video/*">
+                            <div class="upload-title">Keo tha video vao day hoac bam de chon video tu may</div>
+                            <div class="upload-sub">Dinh dang ho tro: MP4, AVI, MKV, MOV (Tối đa 100MB)</div>
+                        </div>
+                        <video id="inputVideo" controls style="display: none;"></video>
+                    </div>
+                </section>
+
+                <!-- Right Panel: Real-Time Detection Result -->
+                <section class="panel-card">
+                    <span class="panel-label">Ket Qua Nhan Dien Truc Tiep (Tung Khung Hinh)</span>
+                    <div class="media-viewer" id="resultViewer">
+                        <div class="media-placeholder" id="resultPlaceholder">
+                            Chua co khung hinh nhan dien. Vui long chon video va bam "Phan Tich Video".
+                        </div>
+                        <img id="outputFrame" src="" alt="Ket Qua Nhan Dien" style="display: none;">
+                    </div>
+                </section>
+            </div>
+
+            <!-- Action Button Row -->
+            <div class="action-row">
+                <button type="button" class="primary-btn" id="runBtn">Phan Tich Video</button>
+                <button type="button" class="secondary-btn" id="stopBtn" disabled>Dung</button>
+            </div>
+
+            <!-- Safety Status Banner -->
+            <div class="status-banner" id="statusBanner">
+                TRANG THAI: Vui long chon video mau ben duoi hoac tai len video de phan tich.
+            </div>
+
+            <!-- Metric KPI Cards (Row of 3) -->
+            <div class="kpi-grid-row">
+                <div class="kpi-card">
+                    <div class="kpi-label">Giam Sat Hinh Anh</div>
+                    <div class="kpi-value" id="visionStatus">-</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Nhan Dien Am Thanh</div>
+                    <div class="kpi-value" id="audioStatus">-</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-label">Nguyen Nhan Tieng Khoc</div>
+                    <div class="kpi-value" id="causeStatus">-</div>
+                </div>
+            </div>
+
+            <!-- Test Examples Section (Visual Thumbnail Cards) -->
+            <section class="examples-section">
+                <h2 class="examples-title">Video Mau Kiem Thu (Thu Muc VIDEO_TEST)</h2>
+                <div class="examples-grid" id="examplesGrid">
+                    <!-- Populated dynamically with thumbnail cards -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Application Script -->
+    <script src="js/app.js"></script>
+</body>
+</html>
